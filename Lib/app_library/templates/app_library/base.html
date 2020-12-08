@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    
+</head>
+<body>
+    <div style="margin: 10px;">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link " href="/profile">
+                    <h3>{{user.username|title}}</h3>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/book">
+                    <h3>Book</h3>
+                </a>
+            </li>
+          </ul>
+    </div>
+    {% block body %}{% endblock body %}
+</body>
+</html>
