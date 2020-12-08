@@ -7,7 +7,8 @@ profile
 
 {% block body %} 
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{% static '' %}" alt="Card image cap">
+  <img class="card-img-top" src={{profile.image.url}} alt="Card image cap">
+  <h1>{{ 'media/'|add:profile.image }}</h1>
   <div class="card-body">
     <h5 class="card-title">{{user.username|title}}</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
