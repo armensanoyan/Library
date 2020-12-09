@@ -30,12 +30,12 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = UserProfile
-        fields = ['url','image','phone_number','user']
+        fields = ['url','image','phone_number','user','user_books']
 
     def create(self, validated_data):
         user = User.objects.create(**validated_data.pop('user'))
         userprofile = UserProfile.objects.create(user=user, **validated_data)
-        return user
+        return userprofile
 
     def update(self, instance, validated_data):
         profile_data = validated_data.pop('user')
@@ -43,6 +43,7 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
         user = instance.user
         instance.image = validated_data.get('image', instance.image)
         instance.phone_number = validated_data.get('phone_number', instance.phone_number)
+        instance.user_books = validated_data.get('user_books', instance.user_books)
         instance.save()
 
         user.username = profile_data.get('username', user.username)
