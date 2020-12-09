@@ -10,12 +10,18 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = UserProfileSerializer
     permission_classes = [permissions.IsAdminUser]
 
+    def destroy(self, request, pk=None):
+        if pk:
+            removed_user = User.objects.get(id=pk)
+            removed_user.delete()
+
 
 class UserViewSet(viewsets.ModelViewSet):
     
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
+
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -37,13 +43,15 @@ def look(request):
 
 def book(request):
     content = {
-        'user_name': str(request.user).title()
+        'user_name': str(request.user).title(),
+        'books': Book.objects.all()
     }
     return render(request, 'app_library/book.html', content)
 
 def profile(request):
     content = {
         'user': request.user,
-        'profile': UserProfile.objects.get(id=request.user.id)
+        'profile': UserProfile.objects.get(id=request.user.id),
+        'books': Book.objects.all()
     }
     return render(request, 'app_library/profile.html', content)
