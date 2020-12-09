@@ -55,5 +55,6 @@ def profile(request):
     content = {
         'user': request.user,
         'profile': UserProfile.objects.get(id=request.user.id),
+        'books': Book.objects.all()
     }
     return render(request, 'app_library/profile.html', content)

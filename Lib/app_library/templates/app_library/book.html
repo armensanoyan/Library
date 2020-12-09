@@ -6,13 +6,13 @@ books
 {% endblock title %}
 
 {% block body %} 
-    {% if filter%}
-        <form method="get" class="form form-inline">
+    {% if filter %}
+        <form method="get" class="form form-inline" style="margin: auto;width: 35%;">
             {% bootstrap_form filter.form layout='inline' %}
             {% bootstrap_button 'filter' %}
         </form>
 
-        <div class="card-columns" style="column-count: 4;padding: 41px;">
+        <div class="card-columns" style="column-count: 5;padding: 4em;">
             {% for book in filter.qs %}
             <div class="card p-3">
                 <img class="card-img-top" src="{{book.imageLink.url}}" alt="Card image cap">
