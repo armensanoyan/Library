@@ -3,7 +3,10 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
 from app_library.serializers import UserSerializer, GroupSerializer, BookSerializer, UserProfileSerializer
+
 from .models import Book, UserProfile
+from .filter import BookFilter
+
 
 class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
@@ -17,11 +20,9 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
-
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -31,20 +32,22 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-
 class BookViewSet(viewsets.ModelViewSet):
-    
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
 
 def look(request):
     return profile(request)
 
 def book(request):
+    filter = BookFilter(request.GET, Book.objects.all())
     content = {
         'user_name': str(request.user).title(),
-        'books': Book.objects.all()
+        'books': filter.qs,
+        'filter': filter,
     }
     return render(request, 'app_library/book.html', content)
 
@@ -52,6 +55,5 @@ def profile(request):
     content = {
         'user': request.user,
         'profile': UserProfile.objects.get(id=request.user.id),
-        'books': Book.objects.all()
     }
     return render(request, 'app_library/profile.html', content)
