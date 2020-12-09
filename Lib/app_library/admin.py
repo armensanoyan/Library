@@ -8,10 +8,11 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ['language']
     search_fields = ['title', 'author']
 
-
 admin.site.register(Book, BookAdmin)
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['user', 'phone_number']
+    list_filter = ['user']
+
 admin.site.register(UserProfile, UserProfileAdmin)
