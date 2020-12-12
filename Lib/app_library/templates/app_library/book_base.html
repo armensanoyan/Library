@@ -1,0 +1,16 @@
+{% extends './base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}
+books
+{% endblock title %}
+
+{% block body %} 
+    {% if filter %}
+        <form method="get" class="form form-inline" style="margin: auto;width: 35%;">
+            {% bootstrap_form filter.form layout='inline' %}
+            {% bootstrap_button 'filter' %}
+        </form>
+    {% endif %} 
+    {% block books %}{% endblock books %}
+{% endblock body %}

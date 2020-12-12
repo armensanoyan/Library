@@ -49,7 +49,15 @@ def book(request):
         'books': filter.qs,
         'filter': filter,
     }
-    return render(request, 'app_library/book.html', content)
+    if request.path == '/book/list':
+        url = 'app_library/book_list.html'
+    elif request.path == '/book/table':
+        url = 'app_library/book_table.html'
+    else:
+        url = 'app_library/book_list.html'
+
+
+    return render(request, url, content)
 
 def profile(request):
     content = {
@@ -58,3 +66,5 @@ def profile(request):
         'books': Book.objects.all()
     }
     return render(request, 'app_library/profile.html', content)
+
+    

@@ -1,21 +1,11 @@
-{% extends './base.html' %}
-{% load bootstrap4 %}
+{% extends './book_base.html' %}
 
-{% block title %}
-books
-{% endblock title %}
-
-{% block body %} 
+{% block books %}
     {% if filter %}
-        <form method="get" class="form form-inline" style="margin: auto;width: 35%;">
-            {% bootstrap_form filter.form layout='inline' %}
-            {% bootstrap_button 'filter' %}
-        </form>
-
         <div class="card-columns" style="column-count: 5;padding: 4em;">
             {% for book in filter.qs %}
             <div class="card p-3">
-                <img class="card-img-top" src="{{book.imageLink.url}}" alt="Card image cap">
+                <img class="card-img-top" src="{{book.imagelink.url}}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{book.title}}</h5>
                   <p class="card-text">By {{book.author}}</p>
@@ -38,4 +28,4 @@ books
         </div>
 {% endif %}
 
-{% endblock body %}
+{% endblock books %}

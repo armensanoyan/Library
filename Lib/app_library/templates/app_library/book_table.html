@@ -1,0 +1,30 @@
+{% extends './book_base.html' %}
+
+
+{% block books %}
+{% if books %}books{% endif %}
+<table class="table">
+    <thead>  "author
+      <tr>
+        <th scope="col">title</th>
+        <th scope="col">author</th>
+        <th scope="col">language</th>
+        <th scope="col">year</th>
+        <th scope="col">pages</th>
+        <th scope="col">country</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+      <tr>
+        <th scope="col">{{book.title}}</th>
+        <th scope="col">{{book.author}}</th>
+        <th scope="col">{{book.language}}</th>
+        <th scope="col">{{book.year}}</th>
+        <th scope="col">{{book.pages}}</th>
+        <th scope="col">{{book.country}}</th>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock books %}
