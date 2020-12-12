@@ -8,10 +8,9 @@ from multiselectfield import MultiSelectField
 
 class Book(models.Model):
 
-    id = models.IntegerField(primary_key=True)
-    author = models.CharField(_("book"), max_length=50, blank=True, null=True)
+    author = models.CharField(_("author"), max_length=50, blank=True, null=True)
     country = models.CharField(_("book"), max_length=50, blank=True, null=True)
-    imageLink = models.ImageField(_(""), upload_to='static/images')
+    imagelink = models.ImageField(_(""), upload_to='static/images')
     language = models.CharField(_("language"), max_length=50, blank=True, null=True)
     link = models.URLField(_("url"), max_length=200, blank=True, null=True)
     pages = models.IntegerField(_("page number"))
