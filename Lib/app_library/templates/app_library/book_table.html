@@ -2,9 +2,9 @@
 
 
 {% block books %}
-{% if books %}books{% endif %}
-<table class="table">
-    <thead>  "author
+<div class="table-responsive" style="width: 155ex; margin: auto;border: 2px solid rgb(193, 190, 190); margin-top: 10ex; border-radius: 4ex;">
+  <table class="table" style="margin: auto">
+    <thead class="thead">  
       <tr>
         <th scope="col">title</th>
         <th scope="col">author</th>
@@ -27,4 +27,5 @@
     {% endfor %}
     </tbody>
   </table>
+</div>
 {% endblock books %}
