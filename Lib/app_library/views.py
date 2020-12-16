@@ -2,10 +2,10 @@ from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
+from django.core import serializers
 
 from app_library.serializers import UserSerializer, GroupSerializer, BookSerializer, UserProfileSerializer
 from .models import Book, UserProfile
-from .filter import BookFilter
 
 
 class UserProfileViewSet(viewsets.ModelViewSet):
@@ -38,7 +38,6 @@ class BookViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-
 def look(request):
     return profile(request)
 
@@ -46,6 +45,7 @@ def book(request):
     content = {
         'user_name': str(request.user).title(),
         'books': Book.objects.all(),
+        # 'filter': filter,
     }
     if request.path == '/book/list':
         url = 'app_library/book_list.html'
@@ -53,6 +53,8 @@ def book(request):
         url = 'app_library/book_table.html'
     else:
         url = 'app_library/book_list.html'
+
+
     return render(request, url, content)
 
 def profile(request):
@@ -62,3 +64,8 @@ def profile(request):
         'books': Book.objects.all()
     }
     return render(request, 'app_library/profile.html', content)
+
+def ajax(request):
+    qs = Book.objects.all()
+    qs_json = serializers.serialize('json', qs)
+    return HttpResponse(qs_json, content_type='application/json')
