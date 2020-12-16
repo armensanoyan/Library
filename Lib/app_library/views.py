@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from app_library.serializers import UserSerializer, GroupSerializer, BookSerializer, UserProfileSerializer
+from django.core import serializers
 
+from app_library.serializers import UserSerializer, GroupSerializer, BookSerializer, UserProfileSerializer
 from .models import Book, UserProfile
-from .filter import BookFilter
 
 
 class UserProfileViewSet(viewsets.ModelViewSet):
@@ -38,16 +38,14 @@ class BookViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-
 def look(request):
     return profile(request)
 
 def book(request):
-    filter = BookFilter(request.GET, Book.objects.all())
     content = {
         'user_name': str(request.user).title(),
-        'books': filter.qs,
-        'filter': filter,
+        'books': Book.objects.all(),
+        # 'filter': filter,
     }
     if request.path == '/book/list':
         url = 'app_library/book_list.html'
@@ -67,4 +65,17 @@ def profile(request):
     }
     return render(request, 'app_library/profile.html', content)
 
-    
+def ajax(request):
+    qs = Book.objects.all()
+    qs_json = serializers.serialize('json', qs)
+    return HttpResponse(qs_json, content_type='application/json')
+
+def user_book(request):
+    id = request.GET['q']
+    userProfile = UserProfile.objects.get(id=request.user.id)
+    user_books = userProfile.user_books.split(',')
+    if id.isdigit() and not id in user_books:
+        userProfile.user_books = request.GET['q'] + ',' + userProfile.user_books 
+        userProfile.save() 
+    print(request)
+    return HttpResponse({},content_type='application/json')

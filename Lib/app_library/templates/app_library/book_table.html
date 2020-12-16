@@ -12,12 +12,13 @@
         <th scope="col">year</th>
         <th scope="col">pages</th>
         <th scope="col">country</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
     {% for book in books %}
       <tr>
-        <th scope="col">{{book.title}}</th>
+        <th scope="col" id="{{book.pk}}" onclick="add_book(event)">{{book.title}}</th>
         <th scope="col">{{book.author}}</th>
         <th scope="col">{{book.language}}</th>
         <th scope="col">{{book.year}}</th>
@@ -28,4 +29,6 @@
     </tbody>
   </table>
 </div>
+<script src="../static/app_library/js/add_book.js"></script>
+<script src="../static/app_library/js/search.js"></script>
 {% endblock books %}
