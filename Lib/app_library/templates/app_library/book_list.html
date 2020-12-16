@@ -9,19 +9,21 @@
                 <div class="card-body">
                   <h5 class="card-title">{{book.title}}</h5>
                   <p class="card-text">By {{book.author}}</p>
+                  <a href="#" class="btn btn-primary">Order</a>
                 </div>
             </div>
             {% endfor %}
         </div>
 
     {% else %}
-        <div class="card-columns" style="column-count: 4;padding: 41px;">
+        <div class="card-columns" style="column-count: 5;padding: 4em;">
             {% for book in books %}
             <div class="card p-3">
-                <img class="card-img-top" src="{{book.imageLink.url}}" alt="Card image cap">
+                <img class="card-img-top" src="{{book.imagelink.url}}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{book.title}}</h5>
                   <p class="card-text">By {{book.author}}</p>
+                  <a href="#" class="btn btn-primary">Order</a>
                 </div>
             </div>
             {% endfor %}
