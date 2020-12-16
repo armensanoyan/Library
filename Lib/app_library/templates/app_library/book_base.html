@@ -1,16 +1,16 @@
 {% extends './base.html' %}
-{% load bootstrap4 %}
 
 {% block title %}
-books
+<title>books</title>
 {% endblock title %}
 
-{% block body %} 
-    {% if filter %}
-        <form method="get" autocomplete="off" class="form form-inline" style="margin: auto;width: 35%;">
-            {% bootstrap_form filter.form layout='inline' %}
-            {% bootstrap_button 'filter' %}
-        </form>
-    {% endif %} 
-    {% block books %}{% endblock books %}
+{% block body %}
+<div style="margin: auto; width:30%;">
+    <input autocomplete="off" type="text" name="title" placeholder="title" id="title">
+    <input autocomplete="off" type="text" name="author" placeholder="author" id="author">
+    <input autocomplete="off" type="submit" value="search" onclick="submit()">
+</div> 
+{% block books %}{% endblock books %}
+<script src="./static/app_library/js/search.js"></script>
 {% endblock body %}
+

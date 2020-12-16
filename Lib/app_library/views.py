@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from app_library.serializers import UserSerializer, GroupSerializer, BookSerializer, UserProfileSerializer
 
+from app_library.serializers import UserSerializer, GroupSerializer, BookSerializer, UserProfileSerializer
 from .models import Book, UserProfile
 from .filter import BookFilter
 
@@ -43,11 +43,9 @@ def look(request):
     return profile(request)
 
 def book(request):
-    filter = BookFilter(request.GET, Book.objects.all())
     content = {
         'user_name': str(request.user).title(),
-        'books': filter.qs,
-        'filter': filter,
+        'books': Book.objects.all(),
     }
     if request.path == '/book/list':
         url = 'app_library/book_list.html'
@@ -55,8 +53,6 @@ def book(request):
         url = 'app_library/book_table.html'
     else:
         url = 'app_library/book_list.html'
-
-
     return render(request, url, content)
 
 def profile(request):
@@ -66,5 +62,3 @@ def profile(request):
         'books': Book.objects.all()
     }
     return render(request, 'app_library/profile.html', content)
-
-    
