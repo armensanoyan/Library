@@ -21,13 +21,13 @@
             <div class="card p-3">
                 <img class="card-img-top" src="{{book.imagelink.url}}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">{{book.title}}</h5>
-                  <p class="card-text">By {{book.author}}</p>
-                  <a href="#" class="btn btn-primary">Order</a>
+                    <h5 class="card-title" id="{{book.pk}}" onclick="add_book(event)">{{book.title}}</h5>
+                    <p class="card-text">By {{book.author}}</p>
                 </div>
             </div>
             {% endfor %}
         </div>
 {% endif %}
-
+<script src="./static/app_library/js/add_book.js"></script>
+<script src="./static/app_library/js/search.js"></script>
 {% endblock books %}

@@ -69,3 +69,13 @@ def ajax(request):
     qs = Book.objects.all()
     qs_json = serializers.serialize('json', qs)
     return HttpResponse(qs_json, content_type='application/json')
+
+def user_book(request):
+    id = request.GET['q']
+    userProfile = UserProfile.objects.get(id=request.user.id)
+    user_books = userProfile.user_books.split(',')
+    if id.isdigit() and not id in user_books:
+        userProfile.user_books = request.GET['q'] + ',' + userProfile.user_books 
+        userProfile.save() 
+    print(request)
+    return HttpResponse({},content_type='application/json')
