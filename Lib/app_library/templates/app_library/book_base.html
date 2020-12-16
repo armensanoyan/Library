@@ -7,7 +7,7 @@ books
 
 {% block body %} 
     {% if filter %}
-        <form method="get" class="form form-inline" style="margin: auto;width: 35%;">
+        <form method="get" autocomplete="off" class="form form-inline" style="margin: auto;width: 35%;">
             {% bootstrap_form filter.form layout='inline' %}
             {% bootstrap_button 'filter' %}
         </form>
