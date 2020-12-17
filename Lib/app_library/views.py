@@ -45,7 +45,6 @@ def book(request):
     content = {
         'user_name': str(request.user).title(),
         'books': Book.objects.all(),
-        # 'filter': filter,
     }
     if request.path == '/book/list':
         url = 'app_library/book_list.html'
@@ -58,6 +57,9 @@ def book(request):
     return render(request, url, content)
 
 def profile(request):
+    user_books = UserProfile.objects.get(id=request.user.id)
+    # if ''
+    # book_list = user_books.split(',').map(number => parseInt(number))
     content = {
         'user': request.user,
         'profile': UserProfile.objects.get(id=request.user.id),
@@ -71,11 +73,12 @@ def ajax(request):
     return HttpResponse(qs_json, content_type='application/json')
 
 def user_book(request):
-    id = request.GET['q']
+    id = request.POST['id']
     userProfile = UserProfile.objects.get(id=request.user.id)
     user_books = userProfile.user_books.split(',')
+    user_books.remove('') if '' in user_books else user_books
     if id.isdigit() and not id in user_books:
-        userProfile.user_books = request.GET['q'] + ',' + userProfile.user_books 
-        userProfile.save() 
+        userProfile.user_books = id + ',' + userProfile.user_books 
+        # userProfile.save() 
     print(request)
     return HttpResponse({},content_type='application/json')

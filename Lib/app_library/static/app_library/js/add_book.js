@@ -19,7 +19,7 @@ function send_book(id) {
 	xml.open('POST', `http://localhost:8000/user_book`)
 	xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xml.setRequestHeader('X-CSRFToken', csrftoken);
-	xml.send(`name=${id}`);
+	xml.send(`id=${id}`);
 }
 
 function add_book(event) {
