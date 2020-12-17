@@ -1,16 +1,15 @@
 var filtered_books = []
-httpRequest = new XMLHttpRequest();
-httpRequest.open('GET', 'http://localhost:8000/ajax/books', true);
-httpRequest.send();
-httpRequest.onload = () => {
-    books = JSON.parse(httpRequest.response)
-}
+element = {}
+
+fetch('http://localhost:8000/ajax/books')
+  .then(res => res.json())
+  .then(res => books = res)
 
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-      x[i].parentNode.removeChild(x[i]);
+      if (elmnt != x[i] && elmnt != element) {
+        x[i].parentNode.removeChild(x[i]);
     }
   }
 }
@@ -18,15 +17,6 @@ document.addEventListener("click", function (e) {
     closeAllLists(e.target);
 });
 
-
-function closeAllLists(elmnt) {
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != title) {
-      x[i].parentNode.removeChild(x[i]);
-    }
-  }
-}
 
 addEventListener('input',function (e){
   element = document.getElementById(e.target.id)
@@ -49,6 +39,8 @@ addEventListener('input',function (e){
     if (books[i]['fields'][filed_name].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
       filtered_books.indexOf(books[i]) === -1 ? filtered_books.push(books[i]): ''
       b = document.createElement("DIV");
+      // write html code in backticks and insert in div using innerhtml,
+      // which is more understandable
       b.innerHTML = "<strong>" + books[i]['fields'][filed_name].substr(0, val.length) + "</strong>";
       b.innerHTML += books[i]['fields'][filed_name].substr(val.length);
       b.innerHTML += "<input type='hidden' value='" + books[i]['fields'][filed_name] + "'>";
