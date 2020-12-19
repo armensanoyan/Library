@@ -2,17 +2,16 @@
 
 
 {% block books %}
-<div class="table-responsive" style="width: 155ex; margin: auto;border: 2px solid rgb(193, 190, 190); margin-top: 10ex; border-radius: 4ex;">
-  <table class="table" style="margin: auto">
+<div class="table-responsive">
+  <table class="table">
     <thead class="thead">  
       <tr>
-        <th scope="col">title</th>
-        <th scope="col">author</th>
-        <th scope="col">language</th>
-        <th scope="col">year</th>
-        <th scope="col">pages</th>
-        <th scope="col">country</th>
-        <th scope="col"></th>
+        <th scope="col" onclick="reorder(id)" id="title">     title</th>
+        <th scope="col" onclick="reorder(id)" id="author">    author</th>
+        <th scope="col" onclick="reorder(id)" id="language">  language</th>
+        <th scope="col" onclick="reorder(id)" id="year">      year</th>
+        <th scope="col" onclick="reorder(id)" id="pages">     pages</th>
+        <th scope="col" onclick="reorder(id)" id="country">   country</th>
       </tr>
     </thead>
     <tbody>
@@ -31,4 +30,5 @@
 </div>
 <script src="../static/app_library/js/add_book.js"></script>
 <script src="../static/app_library/js/search.js"></script>
+<script src="../static/app_library/js/reorder.js"></script>
 {% endblock books %}
