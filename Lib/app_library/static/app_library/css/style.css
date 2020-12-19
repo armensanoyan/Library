@@ -16,12 +16,17 @@ body  {
 	margin: auto;
 }
 
+th, td {
+	border-top: 0px !important ; 
+}
+
+
 .table-responsive {
 	width: 155ex; 
 	margin: auto;
-	border: 2px solid rgb(193, 190, 190); 
 	margin-top: 10ex; 
-	border-radius: 4ex;
+	border-radius: 3ex;
+	background-image: url("../images/texture.jpg");
 }
 
 #filterdiv {
@@ -39,9 +44,6 @@ body  {
 }
 
 .card {
-	background-image: url("../images/texture.jpg");
-}
-.table-responsive {
 	background-image: url("../images/texture.jpg");
 }
 
