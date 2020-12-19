@@ -1,8 +1,46 @@
 body  {
 	background-image: url("../images/library.jpg");
 	background-color: rgba(255, 255, 255, .1);
-	
-  }
-  .nav-link {
-	  color: gray;
-  }
+	margin: 10px;
+}
+
+#maindiv {
+	opacity: .8;
+}
+
+.nav-link {
+	color: gray;
+}
+
+.table {
+	margin: auto;
+}
+
+.table-responsive {
+	width: 155ex; 
+	margin: auto;
+	border: 2px solid rgb(193, 190, 190); 
+	margin-top: 10ex; 
+	border-radius: 4ex;
+}
+
+#filterdiv {
+	margin: auto; 
+	width:30%;
+}
+
+#booklistdiv {
+	column-count: 5;
+	padding: 4em;
+}
+
+.card {
+	background-image: url("../images/texture.jpg");
+}
+.table-responsive {
+	background-image: url("../images/texture.jpg");
+}
+
+.card-img-top {
+	border-radius: 10px !important;
+}

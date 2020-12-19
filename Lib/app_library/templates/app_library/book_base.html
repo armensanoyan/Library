@@ -5,10 +5,12 @@
 {% endblock title %}
 
 {% block body %}
-<div style="margin: auto; width:30%;">
-    <input autocomplete="off" type="text" name="title" placeholder="title" id="title">
-    <input autocomplete="off" type="text" name="author" placeholder="author" id="author">
-    <input autocomplete="off" type="submit" value="search" onclick="submit()">
+
+
+<div id="filterdiv" class="form-inline">
+    <input autocomplete="off" class="form-control mb-2 mr-sm-2" type="text" name="title" placeholder="title" id="title">
+    <input autocomplete="off" class="form-control mb-2 mr-sm-2" type="text" name="author" placeholder="author" id="author">
+    <input class="btn btn-secondary mb-2" type="submit" value="search" onclick="submit()">
 </div> 
 {% block books %}{% endblock books %}
 {% endblock body %}
