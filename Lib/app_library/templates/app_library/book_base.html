@@ -5,11 +5,13 @@
 {% endblock title %}
 
 {% block body %}
-<div style="margin: auto; width:30%;">
-    <input autocomplete="off" type="text" name="title" placeholder="title" id="title">
-    <input autocomplete="off" type="text" name="author" placeholder="author" id="author">
-    <input autocomplete="off" type="submit" value="search" onclick="submit()">
+
+<div id="filterdiv" class="form-inline">
+    <input autocomplete="off" class="filterelement form-control col-md-4 " type="text" name="title" placeholder="title" id="title">
+    <input autocomplete="off" class="filterelement form-control col-md-4 " type="text" name="author" placeholder="author" id="author">
+    <button class="filterelement btn btn-secondary col-md-1 " type="submit" onclick="submit()">Filter</button>
 </div> 
+
 {% block books %}{% endblock books %}
 {% endblock body %}
 

@@ -46,20 +46,15 @@ def book(request):
         'user_name': str(request.user).title(),
         'books': Book.objects.all(),
     }
-    if request.path == '/book/list':
-        url = 'app_library/book_list.html'
-    elif request.path == '/book/table':
+    if request.path == '/t':
         url = 'app_library/book_table.html'
     else:
         url = 'app_library/book_list.html'
-
 
     return render(request, url, content)
 
 def profile(request):
     user_books = UserProfile.objects.get(id=request.user.id)
-    # if ''
-    # book_list = user_books.split(',').map(number => parseInt(number))
     content = {
         'user': request.user,
         'profile': UserProfile.objects.get(id=request.user.id),
@@ -81,4 +76,4 @@ def user_book(request):
         userProfile.user_books = id + ',' + userProfile.user_books 
         # userProfile.save() 
     print(request)
-    return HttpResponse({},content_type='application/json')
+    return HttpResponse("",content_type='application/json')
