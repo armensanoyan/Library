@@ -25,8 +25,11 @@ body  {
 }
 
 #filterdiv {
+	display: inline;
 	margin: auto; 
-	width:30%;
+	width:55%;
+	display: flex;
+  	justify-content: center;
 }
 
 #booklistdiv {
@@ -43,4 +46,8 @@ body  {
 
 .card-img-top {
 	border-radius: 10px !important;
+}
+
+.filterelement {
+	margin: 3px;
 }

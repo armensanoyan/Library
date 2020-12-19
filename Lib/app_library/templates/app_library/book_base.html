@@ -6,12 +6,12 @@
 
 {% block body %}
 
-
 <div id="filterdiv" class="form-inline">
-    <input autocomplete="off" class="form-control mb-2 mr-sm-2" type="text" name="title" placeholder="title" id="title">
-    <input autocomplete="off" class="form-control mb-2 mr-sm-2" type="text" name="author" placeholder="author" id="author">
-    <input class="btn btn-secondary mb-2" type="submit" value="search" onclick="submit()">
+    <input autocomplete="off" class="filterelement form-control col-md-4 " type="text" name="title" placeholder="title" id="title">
+    <input autocomplete="off" class="filterelement form-control col-md-4 " type="text" name="author" placeholder="author" id="author">
+    <button class="filterelement btn btn-secondary col-md-1 " type="submit" onclick="submit()">Filter</button>
 </div> 
+
 {% block books %}{% endblock books %}
 {% endblock body %}
 
