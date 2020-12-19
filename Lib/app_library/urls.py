@@ -9,8 +9,7 @@ app_name='app_library'
 
 urlpatterns = [
     path('', views.book),
-    path('book/list', views.book),
-    path('book/table', views.book),
+    path('t', views.book),
     path('profile', views.profile),
     path('ajax/books', views.ajax),
     path('user_book', views.user_book),
