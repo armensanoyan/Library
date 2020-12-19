@@ -1,0 +1,8 @@
+body  {
+	background-image: url("../images/library.jpg");
+	background-color: rgba(255, 255, 255, .1);
+	
+  }
+  .nav-link {
+	  color: gray;
+  }
