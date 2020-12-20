@@ -22,7 +22,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class BookSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Book
-        fields = ['title', 'author','country','imageLink','language','link','pages','title','year']
+        fields = ['title', 'author','country','imagelink','language','link','pages','year']
 
 
 class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
