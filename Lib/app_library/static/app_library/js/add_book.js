@@ -13,9 +13,10 @@ function getCookie(name) {
     return cookieValue;
 }
 const csrftoken = getCookie('csrftoken');
-
+// use fatch to simplify
 function send_book(id) {
 	xml = new XMLHttpRequest()
+	xml.onreadystatechange = response => console.log('response: ', response)
 	xml.open('POST', `http://localhost:8000/user_book`)
 	xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xml.setRequestHeader('X-CSRFToken', csrftoken);
