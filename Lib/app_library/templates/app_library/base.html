@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./static/app_library/css/style.css">
+    <link rel="stylesheet" href="./static/app_library/css/base_style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {% block title %}{% endblock title %}
 </head>
@@ -22,8 +23,21 @@
                     <h3 class="barText">Books</h3>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <img class="manubaricon" src="./static/app_library/images/list.png" alt="/">
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/t">
+                    <img class="manubaricon" src="./static/app_library/images/table.svg" alt="/t">
+                </a>
+            </li>
           </ul>
     </div>
     {% block body %}{% endblock body %}
+    <script src="{% static 'app_library/js/check_page.js' %}"></script>
 </body>
 </html>

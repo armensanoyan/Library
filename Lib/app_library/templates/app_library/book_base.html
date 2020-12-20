@@ -1,7 +1,7 @@
 {% extends './base.html' %}
 
 {% block title %}
-<title>books</title>
+<title class="pagetitle">books</title>
 {% endblock title %}
 
 {% block body %}
@@ -9,7 +9,9 @@
 <div id="filterdiv" class="form-inline">
     <input autocomplete="off" class="filterelement form-control col-md-4 " type="text" name="title" placeholder="title" id="title">
     <input autocomplete="off" class="filterelement form-control col-md-4 " type="text" name="author" placeholder="author" id="author">
-    <button class="filterelement btn btn-secondary col-md-1 " type="submit" onclick="submit()">Filter</button>
+    <button class="filterelement btn col-md-1 " type="submit" onclick="submit()">Filter</button>
+    <!-- <div id="title-container" class="col-md-4">title</div> -->
+    <!-- <div id="author-container" class="col-md-4">author</div> -->
 </div> 
 
 {% block books %}{% endblock books %}
