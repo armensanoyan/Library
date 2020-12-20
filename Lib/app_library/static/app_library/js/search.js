@@ -1,10 +1,6 @@
 var filtered_books = []
 element = {}
 
-fetch('http://localhost:8000/ajax/books')
-  	.then(res => res.json())
-  	.then(res => books = res)
-
 function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
@@ -17,8 +13,12 @@ document.addEventListener("click", function (e) {
     closeAllLists(e.target);
 });
 
-
 addEventListener('input',function (e){
+
+	fetch('http://localhost:8000/ajax/books')
+  		.then(res => res.json())
+  		.then(res => books = res)
+
   	element = document.getElementById(e.target.id)
 	val = element.value
 	filed_name = e.target.id
