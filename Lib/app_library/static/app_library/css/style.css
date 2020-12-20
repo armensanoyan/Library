@@ -60,3 +60,8 @@ th, td {
 .barText {
 	color: #4a3631;
 }
+
+#user-card {
+	border-radius: 11px;
+	width: 18rem;
+}
