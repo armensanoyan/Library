@@ -39,8 +39,7 @@ class BookViewSet(viewsets.ModelViewSet):
 
 
 def book(request):
-    if request.GET:
-        books = Book.objects.all().order_by(request.GET['field']) if request.GET else Book.objects.all()
+    books = Book.objects.all().order_by(request.GET['field']) if request.GET else Book.objects.all()
     content = {
         'user_name': str(request.user).title(),
         'books': books,
