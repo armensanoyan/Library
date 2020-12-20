@@ -6,12 +6,12 @@
   <table class="table">
     <thead class="thead">  
       <tr>
-        <th scope="col" onclick="reorder(id)" id="title">     title</th>
-        <th scope="col" onclick="reorder(id)" id="author">    author</th>
-        <th scope="col" onclick="reorder(id)" id="language">  language</th>
-        <th scope="col" onclick="reorder(id)" id="year">      year</th>
-        <th scope="col" onclick="reorder(id)" id="pages">     pages</th>
-        <th scope="col" onclick="reorder(id)" id="country">   country</th>
+        <th scope="col" id="title">    <a class="text-dark" href="/t?field=title">   title</a> </th>
+        <th scope="col" id="author">   <a class="text-dark" href="/t?field=author">  author</a> </th>
+        <th scope="col" id="language"> <a class="text-dark" href="/t?field=language">language</a> </th>
+        <th scope="col" id="year">     <a class="text-dark" href="/t?field=year">    year</a> </th>
+        <th scope="col" id="pages">    <a class="text-dark" href="/t?field=pages">   pages</a> </th>
+        <th scope="col" id="country">  <a class="text-dark" href="/t?field=country"> country</a> </th>
       </tr>
     </thead>
     <tbody>
@@ -30,5 +30,4 @@
 </div>
 <script src="../static/app_library/js/add_book.js"></script>
 <script src="../static/app_library/js/search.js"></script>
-<script src="../static/app_library/js/reorder.js"></script>
 {% endblock books %}
