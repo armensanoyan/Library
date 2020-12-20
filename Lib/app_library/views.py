@@ -38,13 +38,12 @@ class BookViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-def look(request):
-    return profile(request)
-
 def book(request):
+    if request.GET:
+        books = Book.objects.all().order_by(request.GET['field']) if request.GET else Book.objects.all()
     content = {
         'user_name': str(request.user).title(),
-        'books': Book.objects.all(),
+        'books': books,
     }
     if request.path == '/t':
         url = 'app_library/book_table.html'
@@ -64,10 +63,6 @@ def profile(request):
     }
     return render(request, 'app_library/profile.html', content)
 
-def ajax(request):
-    qs = Book.objects.all()
-    qs_json = serializers.serialize('json', qs)
-    return HttpResponse(qs_json, content_type='application/json')
 
 def user_book(request):
     user_books = request.user.userprofile.user_books.split(',')
