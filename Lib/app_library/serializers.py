@@ -4,7 +4,6 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
 from .models import UserProfile, Book
-from library.settings import MEDIA_URL
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
