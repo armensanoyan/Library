@@ -41,7 +41,7 @@ class BookViewSet(viewsets.ModelViewSet):
 def book(request):
     books = Book.objects.all().order_by(request.GET['field']) if request.GET else Book.objects.all()
     content = {
-        'user_name': str(request.user).title(),
+        'user': request.user.username.title(),
         'books': books,
     }
     if request.path == '/t':
@@ -57,8 +57,9 @@ def profile(request):
     books = [Book.objects.get(id=id) for id in user_books_list]
 
     content = {
-        'user': request.user,
-        'books': books
+        'user': request.user.username.title(),
+        'books': books,
+        'userprofile': request.user.userprofile,
     }
     return render(request, 'app_library/profile.html', content)
 
@@ -68,6 +69,10 @@ def user_book(request):
     user_books.remove('') if '' in user_books else user_books
     if id.isdigit() and not id in user_books:
         userProfile.user_books = id + ',' + userProfile.user_books 
-        # userProfile.save() 
-    print(request)
+        userProfile.save() 
     return HttpResponse("",content_type='application/json')
+
+def send_books(request):
+    qs = Book.objects.all()
+    qs_json = serializers.serialize('json', qs)
+    return HttpResponse(qs_json, content_type='application/json')

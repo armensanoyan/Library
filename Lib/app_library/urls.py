@@ -12,4 +12,5 @@ urlpatterns = [
     path('t', views.book),
     path('profile', views.profile),
     path('user_book', views.user_book),
+    path('ajax/books', views.send_books),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
