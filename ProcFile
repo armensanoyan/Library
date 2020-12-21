@@ -1,1 +1,1 @@
-web: gunicorn app: Lib/manage.py
+web: gunicorn library.wsgi
