@@ -117,5 +117,5 @@ LOGIN_REDIRECT_URL = ('profile')
 
 CORS_ALLOWED_ORIGINS = [
     "https://example.com",
-    "http://127.0.0.1:8000",
+    "127.0.0.1",
 ]
