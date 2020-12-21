@@ -116,6 +116,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = ('profile')
 
 CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
+    "omylibrary.herokuapp.com",
     "127.0.0.1",
 ]
