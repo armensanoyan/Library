@@ -1,10 +1,13 @@
 {% extends './book_base.html' %}
+{% load static %}
 
 {% block books %}
     <div class="card-columns" id="booklistdiv">
         {% for book in books %}
         <div class="card p-3" id="{{book.pk}}" onclick="add_book(event)">
-            <img class="card-img-top" src="{{book.imagelink.url}}" alt="Card image cap">
+            {% with 'app_library'|add:book.imagelink.url as url%}
+                <img class="card-img-top" src="{% static url %}" alt="Card image cap">
+            {% endwith %}
             <div class="card-body">
                 <h5 class="card-title" >{{book.title}}</h5>
                 <p class="card-text">By {{book.author}}</p>
@@ -12,6 +15,6 @@
         </div>
         {% endfor %}
     </div>
-<script src="./static/app_library/js/add_book.js"></script>
-<script src="./static/app_library/js/search.js"></script>
+<script src="{% static '/app_library/js/add_book.js' %}"></script>
+<script src="{% static '/app_library/js/search.js' %}"></script>
 {% endblock books %}
