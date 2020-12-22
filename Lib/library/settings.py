@@ -121,5 +121,5 @@ CORS_ALLOWED_ORIGINS = [
     "127.0.0.1",
 ]
 
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
