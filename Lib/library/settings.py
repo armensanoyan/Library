@@ -4,8 +4,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'o(9p89^_u(gmvr=cda-vyemr5md9-!wj^i^d)yegjakhln&m(2'
 
-ALLOWED_HOSTS = ['*']
-# DEBUG = True
+# ALLOWED_HOSTS = ['*']
+DEBUG = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -103,7 +103,7 @@ USE_TZ = True
 import os
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
