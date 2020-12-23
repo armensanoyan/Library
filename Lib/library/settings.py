@@ -116,18 +116,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = ('profile')
 
 CORS_ALLOWED_ORIGINS = [
-    "https://omylibrary.herokuapp.com",
-    "https://0.0.0.0",
-    "https://127.0.0.1",
-    # "omylibrary.herokuapp.com",
-    # "0.0.0.0",
-    # "127.0.0.1",
+    "omylibrary.herokuapp.com",
+    "0.0.0.0",
+    "127.0.0.1",
 ]
 
 import django_heroku
 django_heroku.settings(locals(),logging=False)
 TEST_RUNNER = 'django_heroku.HerokuDiscoverRunner'
 
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 LOGGING = {
     'version': 1,
