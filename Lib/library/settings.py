@@ -119,6 +119,9 @@ CORS_ALLOWED_ORIGINS = [
     "omylibrary.herokuapp.com",
     "0.0.0.0",
     "127.0.0.1",
+    "https://omylibrary.herokuapp.com",
+    "https://0.0.0.0",
+    "https://127.0.0.1",
 ]
 
 import django_heroku
