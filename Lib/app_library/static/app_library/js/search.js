@@ -30,13 +30,15 @@ addEventListener('input',function (e){
 	}
 	id = filed_name+'-container'
 	a = document.createElement('DIV')
-	a.style.height = '12em'
 	a.style.overflowX = 'hidden'
 	a.style.backgroundColor = "#a58c68de"
 	a.style.borderRadius = "3px"
 	a.style.padding = "5px"
 	a.style.marginTop = "1ex"
-
+	a.style.minWidth = "fit-content";
+	a.style.minHeight = "fit-content";
+	a.style.maxHeight = "12em";
+    
   	a.setAttribute("id", "autocomplete-list");
   	a.setAttribute("class", "autocomplete-items col-sm-4");
 	document.getElementById(e.target.id).parentNode.appendChild(a);
