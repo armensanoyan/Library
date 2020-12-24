@@ -2,7 +2,7 @@ var filtered_books = []
 element = {}
 books = []
 
-fetch('http://localhost:8000/ajax/books',{mode: 'cors'})
+fetch('http://localhost:8000/ajax/books',{mode: 'no-cors'})
   	.then(res => {
 		console.log(res)
 		return res.json()
