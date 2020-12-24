@@ -3,7 +3,10 @@ element = {}
 books = []
 
 fetch('http://localhost:5000/ajax/books')
-  	.then(res => res.json())
+  	.then(res => {
+		  console.log(res)
+		return res.json()
+	})
 	.then(res => books = res)
 	
 	
