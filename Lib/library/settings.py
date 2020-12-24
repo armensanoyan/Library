@@ -97,9 +97,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
 import os
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -113,6 +110,8 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# by default django redirects me to /profile/accounts 
+# this line will bring me to /profile 
 LOGIN_REDIRECT_URL = ('profile')
 
 CORS_ALLOWED_ORIGINS = [
@@ -126,7 +125,8 @@ django_heroku.settings(locals(),logging=False)
 TEST_RUNNER = 'django_heroku.HerokuDiscoverRunner'
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 LOGGING = {
     'version': 1,
