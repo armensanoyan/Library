@@ -1,0 +1,67 @@
+body  {
+	background-image: url("../images/library.1a91bf13ef08.jpg");
+	background-color: rgba(255, 255, 255, .1);
+	margin: 10px;
+}
+
+#maindiv {
+	opacity: .8;
+}
+
+.nav-link {
+	color: gray;
+}
+
+.table {
+	margin: auto;
+}
+
+th, td {
+	border-top: 0px !important ; 
+}
+
+.table-responsive {
+	margin: auto;
+	margin-top: 8ex; 
+	border-radius: 3ex;
+	background-image: url("../images/texture.e4026d8ee7c9.jpg");
+	width: 91% !important;
+	opacity: .9;
+}
+
+#filterdiv {
+	display: inline;
+	margin: auto; 
+	width:55%;
+	display: flex;
+  	justify-content: center;
+}
+
+#booklistdiv {
+	column-count: 5;
+	padding: 4em;
+	opacity: .9;
+}
+
+.card {
+	background-image: url("../images/texture.e4026d8ee7c9.jpg");
+}
+
+.card-img-top {
+	border-radius: 10px !important;
+}
+
+.filterelement {
+	margin: 3px;
+	background-color: #4a3631db;
+	color: #beb08c;
+}
+
+.barText {
+	color: #4a3631;
+}
+
+#user-card {
+	border-radius: 11px;
+	width: 18rem;
+}

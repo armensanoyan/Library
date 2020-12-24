@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./static/app_library/images/books.png" type="image/png" sizes="16x16">
-    <link rel="stylesheet" href="./static/app_library/css/style.css">
-    <link rel="stylesheet" href="./static/app_library/css/base_style.css">
+    <link rel="icon" type="image/png" href="{% static 'app_library/images/books.png' %}" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="{% static 'app_library/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app_library/css/base_style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {% block title %}{% endblock title %}
 </head>
@@ -14,9 +14,15 @@
     <div id="maindiv" class="container">
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link " href="/profile">
-                    <h3 class="barText">{{user.username|title}}</h3>
-                </a>
+                {% if user %}
+                    <a class="nav-link " href="/profile">
+                        <h3 class="barText">{{user}}</h3>
+                    </a>
+                {% else %}
+                    <a class="nav-link " href="api-auth/login/">
+                        <h3 class="barText">Sign In</h3>
+                    </a>
+                {% endif %}
             </li>
 
             <li class="nav-item">
@@ -27,13 +33,13 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="/">
-                    <img class="manubaricon" src="./static/app_library/images/list.png" alt="/">
+                    <img class="manubaricon" src="{% static '/app_library/images/list.png' %}" alt="/">
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/t">
-                    <img class="manubaricon" src="./static/app_library/images/table.svg" alt="/t">
+                    <img class="manubaricon" src="{% static '/app_library/images/table.svg' %}" alt="/t">
                 </a>
             </li>
           </ul>

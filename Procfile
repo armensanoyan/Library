@@ -1,0 +1,1 @@
+web: gunicorn --chdir ./Lib library.wsgi
