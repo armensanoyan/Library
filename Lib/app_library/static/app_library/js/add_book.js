@@ -17,7 +17,7 @@ const csrftoken = getCookie('csrftoken');
 function send_book(id) {
 	xml = new XMLHttpRequest()
 	xml.onreadystatechange = response => console.log('response: ', response)
-	xml.open('POST', `http://localhost:8000/user_book`)
+	xml.open('POST', `http://localhost:5000/user_book`)
 	xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xml.setRequestHeader('X-CSRFToken', csrftoken);
 	xml.send(`id=${id}`);
